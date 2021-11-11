@@ -56,20 +56,17 @@ const Page = () => {
   const [selectedCategoryId, setSelectedCategoryId] = React.useState(1);
 
   const filteredProducts = products.filter((product) => product.categoryId === selectedCategoryId);
-
-  // const filteredProducts = [];
-  // for (let i = 0; i < products.length; i += 1) {
-  //   const product = products[i];
-  //   if (product.categoryId === selectedCategoryId) {
-  //     filteredProducts.push(product);
-  //   }
-  // }
   
+  const handleSelectCategory = (category) => {
+    setSelectedCategoryId(category.id);
+  };
+
   return (
     <div className="row">
       <div className="col-2">
         <CategoryList
           categories={categories}
+          onSelectCategory={handleSelectCategory}
         />
       </div>
       <div className="col-8">
