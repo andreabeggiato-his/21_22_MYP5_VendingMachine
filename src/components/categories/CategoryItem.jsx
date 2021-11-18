@@ -7,8 +7,12 @@ const CategoryItem = (props) => {
   };
 
   return (
-    <div onClick={handleClick}>
-      {category.name}
+    <div className="card" onClick={handleClick}>
+      <div className="card-body">
+        <div className="card-text">
+          {category.name}
+        </div>
+      </div>
     </div>
   );
 };

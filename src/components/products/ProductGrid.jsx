@@ -1,3 +1,5 @@
+import ProductItem from './ProductItem';
+
 const ProductGrid = (props) => {
   const products = props.products;
 
@@ -10,7 +12,9 @@ const ProductGrid = (props) => {
   return products.map((product) => (
       <div className="row">
         <div className="col-12">
-          {product.name}
+          <ProductItem 
+            product={product}
+          />
         </div>
       </div>
     ));
