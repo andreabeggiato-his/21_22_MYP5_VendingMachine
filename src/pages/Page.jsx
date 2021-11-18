@@ -54,6 +54,7 @@ const products = [
 const Page = () => {
 
   const [selectedCategoryId, setSelectedCategoryId] = React.useState(1);
+  const [money, setMoney] = React.useState(3);
 
   const filteredProducts = products.filter((product) => product.categoryId === selectedCategoryId);
   
@@ -71,11 +72,12 @@ const Page = () => {
       </div>
       <div className="col-8">
         <ProductGrid
+          money={money}
           products={filteredProducts}
         />
       </div>
       <div className="col-2">
-        Col 3
+        {money}
       </div>
     </div>
   );
