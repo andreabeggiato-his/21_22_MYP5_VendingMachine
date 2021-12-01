@@ -62,6 +62,34 @@ const Page = () => {
     setSelectedCategoryId(category.id);
   };
 
+  const handle5Click = () => {
+    setMoney(money + 5);
+  };
+
+  const handle2Click = () => {
+    setMoney(money + 2);
+  };
+
+  const handle1Click = () => {
+    setMoney(money + 1);
+  };
+
+  const handle05Click = () => {
+    setMoney(money + 0.5);
+  };
+
+  const handle02Click = () => {
+    setMoney(money + 0.2);
+  };
+
+  const handle01Click = () => {
+    setMoney(money + 0.1);
+  };
+
+  const handleBuy = (product) => {
+    setMoney(money - product.price)
+  }
+
   return (
     <div className="row">
       <div className="col-2">
@@ -74,10 +102,33 @@ const Page = () => {
         <ProductGrid
           money={money}
           products={filteredProducts}
+          onBuy={handleBuy}
         />
       </div>
       <div className="col-2">
-        {money}
+        <div className="row">
+          <div className="col-12" style={{ fontFamily: 'monospace' }}>
+            <h4>{money.toFixed(2)}</h4>
+          </div>
+        </div>
+        <div className="row mt-3">
+          <div className="col-12">
+            <div class="btn-group" role="group">
+              <button onClick={handle5Click} type="button" class="btn btn-primary">$5</button>
+              <button onClick={handle2Click} type="button" class="btn btn-primary">$2</button>
+              <button onClick={handle1Click} type="button" class="btn btn-primary">$1</button>
+            </div>
+          </div>
+        </div>
+        <div className="row mt-3">
+          <div className="col-12">
+            <div class="btn-group" role="group">
+              <button onClick={handle05Click} type="button" class="btn btn-primary">$0.50</button>
+              <button onClick={handle02Click} type="button" class="btn btn-primary">$0.20</button>
+              <button onClick={handle01Click} type="button" class="btn btn-primary">$0.10</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

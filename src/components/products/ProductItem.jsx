@@ -1,11 +1,21 @@
 const ProductItem = (props) => {
   const product = props.product;
   const canPurchase = props.money >= props.product.price;
+  const onBuy = props.onBuy;
 
-  const bgColorClass = canPurchase ? 'bg-success' : 'bg-danger';
+  const bgColorClass = canPurchase ? 'bg-info' : 'bg-danger';
+
+  const handleClick = () => {
+    if (props.money >= product.price) {
+      onBuy(product);
+    }
+    else {
+      alert('Insert money');
+    }
+  };
 
   return (
-    <div className={`card ${bgColorClass} bg-opacity-25`}>
+    <div onClick={handleClick} className={`card ${bgColorClass}`}>
       <div className="card-body">
         <div className="row">
           <div className="col-6">
